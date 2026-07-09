@@ -14,7 +14,7 @@ export default function Header() {
   return(
     <div className="p-2">
         <header className="bg-gray-200 flex items-center justify-between">
-          <p className="m-2">Student Manager</p>
+          <Button className="m-2 bg-gray-200" variant="outline" onClick={() => navigate("/dashboard")}>Student Manager</Button>
           <Button className="m-2" variant="outline" onClick={HandleLogout}>ログアウト</Button>
         </header>
       </div>

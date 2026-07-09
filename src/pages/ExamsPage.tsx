@@ -1,6 +1,7 @@
 import apiClient from "@/api/client";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { useAuth } from "@/contexts/AuthContext";
 import type { Exam } from "@/types";
 import { Plus } from "lucide-react";
@@ -20,21 +21,31 @@ export default function ExamsPage() {
     fetchExams();
   }, [user]);
 
+  const HandleExamResult = (exam: Exam) => {
+    navigate(`/exams/${exam.id}/results`);
+  };
+
   return (
     <>
       <Header />
-      <div className="p-5">
-        <ul>
-          {exams.map((exam) => (
-            <li key={exam.id}>{exam.exam_name}</li>
-          ))}
-        </ul>
-      </div>
       <div>
-        <Button onClick={() => navigate("/exams/new") }>
+        <Button onClick={() => navigate("/exams/new")}>
           <Plus className="mr-2 h-4 w-4" />
           新規登録
         </Button>
+      </div>
+      <div className="p-5">
+        <ul>
+          {exams.map((exam) => (
+            <Card
+              onClick={() => HandleExamResult(exam)}
+              className="m-2 p-3 cursor-pointer"
+              key={exam.id}
+            >
+              {exam.exam_name}
+            </Card>
+          ))}
+        </ul>
       </div>
     </>
   );
