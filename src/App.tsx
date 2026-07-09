@@ -3,6 +3,7 @@ import LoginPage from "@/pages/LoginPage";
 import Dashboard from "@/pages/Dashboard"
 import RegisterPage from "./pages/RegisterPage";
 import ExamsPage from "./pages/ExamsPage";
+import ExamsNewPage from "./pages/ExamsNewPage";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/exams" element={<ExamsPage />} />
+      <Route path="/exams/new" element={<ExamsNewPage />} />
     </Routes>
   );
 }
