@@ -21,9 +21,6 @@ export default function ExamsPage() {
     fetchExams();
   }, [user]);
 
-  const HandleExamResult = (exam: Exam) => {
-    navigate(`/exams/${exam.id}/results`);
-  };
 
   return (
     <>
@@ -38,7 +35,7 @@ export default function ExamsPage() {
         <ul>
           {exams.map((exam) => (
             <Card
-              onClick={() => HandleExamResult(exam)}
+              onClick={() => navigate(`/exams/${exam.id}/results`)}
               className="m-2 p-3 cursor-pointer"
               key={exam.id}
             >
