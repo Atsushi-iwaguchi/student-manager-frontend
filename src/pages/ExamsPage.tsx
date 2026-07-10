@@ -6,7 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import type { Exam } from "@/types";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ExamsPage() {
   const navigate = useNavigate();
