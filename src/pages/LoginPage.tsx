@@ -16,7 +16,6 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    //ページリロードを止める
     e.preventDefault();
     setError("");
     try {
@@ -25,10 +24,14 @@ export default function LoginPage() {
         password,
       });
       login(response.data.user, response.data.token);
-      //dashboardにページ遷移
-      navigate("/dashboard");
+
+      // roleによってリダイレクト先を分岐
+      if (response.data.user.role === "teacher") {
+        navigate("/teacher");
+      } else {
+        navigate("/dashboard");
+      }
     } catch {
-      //API通信に失敗したらこのメッセージを表示
       setError("メールアドレスまたはパスワードが正しくありません");
     }
   };
