@@ -7,6 +7,7 @@ import ExamsNewPage from "./pages/ExamsNewPage";
 import ExamResultPage from "./pages/ExamResultPage";
 import ExamResultEditPage from "./pages/ExamResultsEditPage";
 import PrivateRoute from "./components/PrivateRoute";
+import TeacherPage from "./TeacherPage";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Route path="/exams/new" element={<PrivateRoute><ExamsNewPage /></PrivateRoute>} />
       <Route path="/exams/:id/results" element={<PrivateRoute><ExamResultPage /></PrivateRoute>} />
       <Route path="/exams/:id/edit" element={<PrivateRoute><ExamResultEditPage /></PrivateRoute>} />
+      <Route path="/teacher" element={<PrivateRoute><TeacherPage /></PrivateRoute>} />
     </Routes>
   );
 }
