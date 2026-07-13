@@ -3,9 +3,10 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
-import { Label } from "@/components/ui/label"
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function ExamResultEditPage() {
   const navigate = useNavigate();
@@ -41,14 +42,20 @@ export default function ExamResultEditPage() {
         <form onSubmit={HandleSubmit} className="space-y-4 max-w-md">
           <div className="space-y-2">
             <Label htmlFor="subject">科目</Label>
-            <Input
-              id="subject"
-              type="text"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-              placeholder="数学"
-              required
-            />
+            <Select onValueChange={(value) => setSubject(value)}>
+              <SelectTrigger>
+                <SelectValue placeholder="科目を選択" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="国語">国語</SelectItem>
+                <SelectItem value="数学">数学</SelectItem>
+                <SelectItem value="英語">英語</SelectItem>
+                <SelectItem value="物理">物理</SelectItem>
+                <SelectItem value="化学">化学</SelectItem>
+                <SelectItem value="地理">地理</SelectItem>
+                <SelectItem value="歴史">歴史</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           <div className="space-y-2">
             <Label htmlFor="score">点数</Label>
