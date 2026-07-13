@@ -3,12 +3,11 @@ import axios from "axios";
 //毎回http.../v1を書かなくていいように
 //apiClient.get("/exams")と書くだけでrailsのAPIにアクセスできる
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000/api/v1',
-})
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/api/v1",
+});
 
 //interceptorでJWTを自動でつける仕組みを追加している
 apiClient.interceptors.request.use((config) => {
-
   //ローカルストレージから保存しておいたトークンを取得する
   const token = localStorage.getItem("token");
   if (token) {
