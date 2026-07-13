@@ -21,17 +21,15 @@ export default function ExamsPage() {
     fetchExams();
   }, [user]);
 
-
   return (
     <>
       <Header />
-      <div>
-        <Button onClick={() => navigate("/exams/new")}>
+      <div className="p-5">
+        <h1 className="mt-2 mb-2">模試成績一覧</h1>
+        <Button className="m-2" onClick={() => navigate("/exams/new")}>
           <Plus className="mr-2 h-4 w-4" />
           新規登録
         </Button>
-      </div>
-      <div className="p-5">
         <ul>
           {exams.map((exam) => (
             <Card
