@@ -15,8 +15,21 @@ export default function DashboardPage() {
         <p className="mb-5">{user?.name}さん今日も頑張りましょう！</p>
         <ul className="flex gap-4">
           <li>
-            <Button variant="outline" className="w-48 h-18" onClick={() => navigate("/exams")}>
+            <Button
+              variant="outline"
+              className="w-48 h-18"
+              onClick={() => navigate("/exams")}
+            >
               模試成績一覧
+            </Button>
+          </li>
+          <li>
+            <Button
+              variant="outline"
+              className="w-48 h-18"
+              onClick={() => navigate("/graph")}
+            >
+              成績グラフ
             </Button>
           </li>
           <li>
