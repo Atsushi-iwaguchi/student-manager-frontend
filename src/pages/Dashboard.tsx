@@ -13,7 +13,7 @@ export default function DashboardPage() {
 
       <div className="p-5">
         <p className="mb-5">{user?.name}さん今日も頑張りましょう！</p>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4 flex-wrap justify-center">
           <li>
             <Button
               variant="outline"
