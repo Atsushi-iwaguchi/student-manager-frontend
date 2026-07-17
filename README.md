@@ -27,14 +27,6 @@
 
 ### 前提条件
 - Node.js
-
-### セットアップ
-
-```bash
-git clone https://github.com/Atsushi-iwaguchi/student-manager-frontend
-cd student-manager-frontend
-npm install
-npm run dev
 ```
 
 ### 環境変数
