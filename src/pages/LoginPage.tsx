@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import apiClient from "@/api/client";
 import type { AuthResponse } from "@/types";
@@ -40,13 +40,17 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">ログイン</CardTitle>
+          <CardTitle className="mt-2 text-2xl text-center">ログイン</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 flex flex-col items-center mb-4 "
+          >
             <div className="space-y-2">
               <Label htmlFor="email">メールアドレス</Label>
               <Input
+                className="w-82 h-10"
                 id="email"
                 type="email"
                 value={email}
@@ -55,9 +59,10 @@ export default function LoginPage() {
                 required
               />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 ">
               <Label htmlFor="password">パスワード</Label>
               <Input
+                className="w-82 h-10"
                 id="password"
                 type="password"
                 value={password}
@@ -67,13 +72,19 @@ export default function LoginPage() {
               />
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
-            <Button type="submit" className="w-full">
-              ログイン
-            </Button>
+
+            <div className="flex justify-center ">
+              <Button type="submit" className="w-82 h-10">
+                ログインする
+              </Button>
+            </div>
           </form>
-          <Button className="mt-2" onClick={() => navigate("/register")}>
-            新規登録
-          </Button>
+          <hr className="w-full border-gray-300 my-3" />
+          <div className="flex justify-center p-2">
+            <Link to="/register" className="text-sm underline text-olive-900">
+              新規登録はこちら
+            </Link>
+          </div>
         </CardContent>
       </Card>
     </div>

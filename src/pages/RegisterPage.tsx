@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useAuth } from "@/contexts/AuthContext";
 import { AuthResponse } from "@/types";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -55,10 +55,14 @@ export default function RegisterPage() {
           <CardTitle className="text-2xl text-center">登録</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 flex flex-col items-center"
+          >
             <div className="space-y-2">
               <Label htmlFor="name">ユーザー名</Label>
               <Input
+                className="w-82 h-10"
                 id="name"
                 type="text"
                 value={name}
@@ -70,6 +74,7 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="email">メールアドレス</Label>
               <Input
+                className="w-82 h-10"
                 id="email"
                 type="email"
                 value={email}
@@ -81,6 +86,7 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="password">パスワード</Label>
               <Input
+                className="w-82 h-10"
                 id="password"
                 type="password"
                 value={password}
@@ -92,6 +98,7 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="passwordConfirmation">パスワード確認</Label>
               <Input
+                className="w-82 h-10"
                 id="passwordConfirmation"
                 type="password"
                 value={passwordConfirmation}
@@ -103,6 +110,7 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="school">学校名</Label>
               <Input
+                className="w-82 h-10"
                 id="school"
                 type="text"
                 value={school}
@@ -114,6 +122,7 @@ export default function RegisterPage() {
             <div className="space-y-2">
               <Label htmlFor="grade">学年</Label>
               <Input
+                className="w-82 h-10"
                 id="grade"
                 type="text"
                 value={grade}
@@ -123,9 +132,20 @@ export default function RegisterPage() {
               />
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
-            <Button type="submit" className="w-full">
-              作成
-            </Button>
+            <div className="flex justify-center ">
+              <Button type="submit" className="w-82 h-10">
+                作成
+              </Button>
+            </div>
+            <hr className="w-full border-gray-300 my-3" />
+            <div className="flex justify-center p-2">
+              <Link
+                to="/login"
+                className="text-sm underline"
+              >
+                ログインはこちら
+              </Link>
+            </div>
           </form>
         </CardContent>
       </Card>
